@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="output.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Overpass:wght@100..900&family=Ubuntu:ital,wght@0,400;0,500;0,700;1,700&display=swap"
+    rel="stylesheet">
+
+  <title>Frontend Mentor | [Blogr]</title>
+
+  <style>
+    #state {
+      background-position-y: bottom 36vw;
+      background-position-x: center;
+    }
+    @media screen and (width >= 40rem) {
+        #state {
+        background-position-y: bottom -30vh;
+        background-position-x: left -25vw;
+      }
+    }
+    #articles, #articles_2 {
+      font-family: "Overpass", system-ui;
+    }
+    nav, button {
+      font-family: "Ubuntu", system-ui;
+    }
+    summary {
+      font-weight: 700;
+    }
+    details > div {
+      font-weight: 400;
+    }
+    </style>
+
+  <script>
+    function toggleNav() {
+      let navMenu = document.getElementById("mobile_nav");
+      toggleHamb();
+      if (navMenu.style.display == "flex") {
+        navMenu.style.display = "none";
+      } else {
+        navMenu.style.display = "flex";
+      }
+    }
+    function toggleHamb() {
+        let hamb = document.querySelector("#hamburger > img");
+        if (hamb.getAttribute('src') == "./images/icon-hamburger.svg") {
+          hamb.src = "./images/icon-close.svg";
+        } else {
+          hamb.src = "./images/icon-hamburger.svg";
+        }
+      }
+  </script>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+</head>
+<body class="w-full flex flex-col bg-white">
+  <main>
+    <div id="start__wrapper" class="rounded-bl-[6rem] bg-red-400">
+      <section id="start" class="rounded-bl-[6rem] bg-[url(./images/bg-pattern-intro-mobile.svg)] bg-position-[37%] bg-origin-border bg-no-repeat bg-size-[400vw] order-10 w-full p-5 flex flex-col">
+        <header class="flex flex-col relative">
+          <div class="top-head flex flex-row justify-between lg:justify-start lg:gap-8 items-center">
+            <img src="./images/logo.svg" alt="Blogr">
+            <div class="hidden lg:flex flex-row justify-between w-full items-center">
+              <nav id="desktop_nav" class="hidden lg:flex flex-row gap-8">
+                <div class="group">
+                  <button
+                    class="[&::-webkit-details-marker]:hidden relative cursor-pointer list-none flex flex-row gap-2 text-white text-lg font-bold items-center justify-center">
+                    Product <img src="./images/icon-arrow-light.svg" class="transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180">
+                  </button>
+                
+                  <div class="hidden group-hover:flex group-focus-within:flex flex-col p-5 mt-3 bg-gray-100 rounded-xl text-gray-600 gap-2 absolute top-7 left-28">
+                    <a href="#" target="_blank" class="hover:text-black">Overview</a>
+                    <a href="#" target="_blank" class="hover:text-black">Pricing</a>
+                    <a href="#" target="_blank" class="hover:text-black">Marketplace</a>
+                    <a href="#" target="_blank" class="hover:text-black">Features</a>
+                    <a href="#" target="_blank" class="hover:text-black">Integrations</a>
+                  </div>
+                </div>
+                <div class="group">
+                  <button
+                    class="[&::-webkit-details-marker]:hidden relative cursor-pointer list-none flex flex-row gap-2 text-white text-lg font-bold items-center justify-center">
+                    Company <img src="./images/icon-arrow-light.svg"
+                      class="transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180">
+                  </button>
+                
+                  <div
+                    class="hidden group-hover:flex group-focus-within:flex flex-col p-5 mt-3 bg-gray-100 rounded-xl text-gray-600 gap-2 absolute top-7 left-62">
+                    <a href="#" target="_blank" class="hover:text-black">About</a>
+                    <a href="#" target="_blank" class="hover:text-black">Team</a>
+                    <a href="#" target="_blank" class="hover:text-black">Blog</a>
+                    <a href="#" target="_blank" class="hover:text-black">Careers</a>
+                  </div>
+                </div>
+                <div class="group">
+                  <button
+                    class="[&::-webkit-details-marker]:hidden relative cursor-pointer list-none flex flex-row gap-2 text-white text-lg font-bold items-center justify-center">
+                    Connect <img src="./images/icon-arrow-light.svg"
+                      class="transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180">
+                  </button>
+                
+                  <div
+                    class="hidden group-hover:flex group-focus-within:flex flex-col p-5 mt-3 bg-gray-100 rounded-xl text-gray-600 gap-2 absolute top-7 left-89">
+                    <a href="#" target="_blank" class="hover:text-black">Contact</a>
+                    <a href="#" target="_blank" class="hover:text-black">Newsletter</a>
+                    <a href="#" target="_blank" class="hover:text-black">LinkedIn</a>
+                  </div>
+                </div>
+              </nav>
+              <div class="flex flex-row gap-8">
+                <button class="text-white font-bold">Login</button>
+                <button
+                  class="pr-1 pl-1 pt-2 pb-2 rounded-3xl font-bold bg-white text-red-500 w-35 self-center">Sign
+                  Up</button>
+              </div>
+            </div>
+            <button id="hamburger" class="xl:hidden" onclick="toggleNav()"><img class="transition-transform duration-200" src="./images/icon-hamburger.svg" alt="Navigation button icon"></button>
+          </div>
+          <nav id="mobile_nav" class="hidden flex-col justify-center self-center text-center bg-white p-5 rounded-xl w-80 min-h-100 absolute top-15 gap-8 shadow-2xl">
+            <details class="group">
+              <summary class="[&::-webkit-details-marker]:hidden cursor-pointer list-none flex flex-row gap-2 items-center justify-center">Product <img src="./images/icon-arrow-dark.svg" class="transition-transform duration-200 group-open:rotate-180"></summary>
+        
+              <div class="flex flex-col p-5 m-2 bg-gray-100 rounded-xl text-gray-600 gap-2">
+                <a href="#" target="_blank">Overview</a>
+                <a href="#" target="_blank">Pricing</a>
+                <a href="#" target="_blank">Marketplace</a>
+                <a href="#" target="_blank">Features</a>
+                <a href="#" target="_blank">Integrations</a>
+              </div>
+            </details>
+
+            <details class="group">
+              <summary class="[&::-webkit-details-marker]:hidden cursor-pointer list-none flex flex-row gap-2 items-center justify-center">Company <img src="./images/icon-arrow-dark.svg" class="transition-transform duration-200 group-open:rotate-180"></summary>
+
+              <div class="flex flex-col p-5 m-2 bg-gray-100 rounded-xl text-gray-600 gap-2">
+                <a href="#" target="_blank">About</a>
+                <a href="#" target="_blank">Team</a>
+                <a href="#" target="_blank">Blog</a>
+                <a href="#" target="_blank">Careers</a>
+              </div>
+            </details>
+
+            <details class="group">
+              <summary class="[&::-webkit-details-marker]:hidden cursor-pointer list-none flex flex-row gap-2 items-center justify-center">Connect <img src="./images/icon-arrow-dark.svg" class="transition-transform duration-200 group-open:rotate-180"></summary>
+
+              <div class="flex flex-col p-5 m-2 bg-gray-100 rounded-xl text-gray-600 gap-2">
+                <a href="#" target="_blank">Contact</a>
+                <a href="#" target="_blank">Newsletter</a>
+                <a href="#" target="_blank">LinkedIn</a>
+              </div>
+            </details>
+        
+            <hr class="mt-2 mb-2 text-gray-200">
+
+            <div class="flex flex-col gap-2 m-2">
+              <button class="text-black font-bold">Login</button>
+              <button class="pr-1 pl-1 pt-2 pb-2 rounded-3xl font-bold bg-gradient-to-r from-red-400 to-red-500 w-35 self-center text-white">Sign Up</button>
+            </div>
+          </nav>
+        </header>
+        <div id="start__content" class="flex flex-col self-center text-center mt-20 mb-20 gap-3">
+          <h1 class="text-white text-3xl font-bold w-85">A modern publishing platform</h1>
+          <p class="text-white text-base">Grow your audience and build your online brand</p>
+
+          <div id="start__buttons" class="gap-5 flex flex-row self-center mt-4">
+            <button class="bg-white p-3 rounded-4xl text-red-400 font-bold">Start for Free</button>
+            <button class="text-white p-3 rounded-4xl font-bold border-white border-2">Learn More</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <section id="articles" class="mt-16">
+      <h1 class="text-center font-medium text-4xl">Designed for the future</h1>
+
+      <div id="articles__wrapper" class="flex flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center w-full overflow-hidden">
+        <img src="./images/illustration-editor-mobile.svg" class="lg:order-10 w-[100%] md:w-[50%] self-center lg:translate-x-26 lg:hidden" id="articles__editor">
+        <img src="./images/illustration-editor-desktop.svg" class="hidden lg:block lg:order-10 lg:w-[100%] lg:max-w-none lg:justify-self-end lg:translate-x-[30%] lg:-translate-y-[1%]">
+
+        <div id="articles__content" class="flex flex-col lg:order-1 lg:max-w-[39rem] lg:justify-self-start lg:justify-center lg:pl-32">
+          <div id="articles__introducing" class="mt-8 flex flex-col gap-4 justify-center">
+            <h1 class="text-center lg:text-left font-medium text-[200%] w-75 lg:w-full self-center lg:self-start">Introducing an extensible editor</h1>
+            <p class="text-center self-center p-[5_0] w-75 lg:w-full font-extralight lg:text-left lg:self-start" >Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content. 
+            The editor supports management of multiple blogs and allows easy manipulation of embeds such as images, 
+            videos, and Markdown. Extensibility with plugins and themes provide easy ways to add functionality or 
+            change the looks of a blog.</p>
+          </div>
+
+          <div id="articles__robust" id="articles__introducing" class="mt-16 flex flex-col gap-4">
+            <h1 class="text-center font-medium text-[200%] lg:text-left lg:w-full self-center lg:self-start">Robust content management</h1>
+            <p class="text-center self-center p-[5_0] w-75 font-extralight lg:w-full lg:text-left lg:self-start">Flexible content management enables users to easily move through posts. Increase the usability of your blog 
+            by adding customized categories, sections, format, or flow. With this functionality, you’re in full control.</p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <div id="state__wrapper" class="rounded-bl-[6rem] rounded-tr-[6rem] bg-gray-700 mt-50">
+    <section id="state" class="relative lg:static rounded-bl-[6rem] rounded-tr-[6rem] bg-[url(./images/bg-pattern-circles.svg)] bg-size-[150vw] lg:bg-size-[100vw] lg:bg-left bg-origin-border bg-no-repeat order-10 w-full p-[20px_20px_40px_20px] md:p-[10%_20px_10%_20px] flex flex-col items-center sm:grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] sm:gap-x-8">
+      <div class="static md:relative md:flex md:justify-center md:w-full lg:min-h-[140%] lg:translate-y-[10vh]">
+        <img src="./images/illustration-phones.svg" alt="" class="absolute bottom-[60%] left-[7%] sm:left-[2%] right-0 w-83 sm:bottom-auto sm:top-0 sm:translate-y-[5%] md:-translate-y-[50%] lg:-translate-y-[47%] md:left-0 md:w-full max-w-[876px] max-h-[876px]">
+      </div>
+      <div id="state__content" class="md:w-full flex flex-col place-items-center">
+        <h1 class="text-white text-center sm:text-left text-3xl font-medium w-85 sm:w-full mt-30 md:mt-0 mb-2">State of the Art Infrastructure</h1>
+        <p class="text-white text-base text-center sm:text-left font-light p-[10_0] w-[90%] mb-10 sm:w-full">With reliability and speed in mind, worldwide data centers provide the backbone for ultra-fast connectivity.
+        This ensures your site will load instantly, no matter where your readers are, keeping your site competitive.</p>
+      </div>
+    </section>
+  </div>
+
+  <section id="articles_2" class="mt-12 mb-24 lg:h-auto flex flex-col gap-4 justify-center lg:grid lg:grid-cols-2 lg:items-center w-full overflow-hidden">
+    <img src="./images/illustration-laptop-mobile.svg" class="md:w-[50%] self-center lg:hidden" id="articles_2__laptop__mobile">
+    <img src="./images/illustration-laptop-desktop.svg" class="hidden lg:block lg:max-w-none lg:justify-self-start lg:-translate-x-[30%] lg:-translate-y-[0%] lg:col-start-1 lg:w-full lg:max-w-[600px] lg:h-auto object-contain" id="articles_2__laptop__desktop">
+    <div class="flex flex-col lg:h-full lg:max-w-[39rem] lg:justify-center lg:justify-self-center lg:pr-32 lg:col-start-2">
+      <div class="mt-16 flex flex-col gap-4 justify-center">
+        <h1 class="text-center lg:text-left font-medium text-[200%] w-75 lg:w-full self-center lg:self-start">Free, open, simple</h1>
+        <p class="text-center self-center p-[5_0] w-75 lg:w-full font-extralight lg:text-left lg:self-start">Blogr is a free and open source application backed by a large community of helpful developers. It supports 
+        features such as code syntax highlighting, RSS feeds, social media integration, third-party commenting tools, 
+        and works seamlessly with Google Analytics. The architecture is clean and is relatively easy to learn.</p>
+      </div>
+      
+      <div class="mt-16 flex flex-col gap-4">
+        <h1 class="text-center lg:text-left font-medium text-[200%] w-75 lg:w-full self-center lg:self-start">Powerful tooling</h1>
+        <p class="text-center self-center p-[5_0] w-75 lg:w-full font-extralight lg:text-left lg:self-start">Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a breeze, but
+        capable of producing even the most complicated sites.</p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+  <footer class="bg-[#24242c] rounded-tr-[6rem] p-10 flex flex-col lg:flex-row justify-center text-center gap-8">
+    <img src="./images/logo.svg" alt="Blogr" class="w-25 self-center lg:self-start mb-8">
+    <div class="flex flex-col justify-center text-center">
+      <h2 class="text-white self-center text-xl font-semibold w-85 mb-4">Product</h2>
+    
+      <a href="#" target="_blank" class="text-white font-light">Overview</a>
+      <a href="#" target="_blank" class="text-white font-light">Pricing</a>
+      <a href="#" target="_blank" class="text-white font-light">Marketplace</a>
+      <a href="#" target="_blank" class="text-white font-light">Features</a>
+      <a href="#" target="_blank" class="text-white font-light">Integrations</a>
+    </div>
+    
+    <div class="flex flex-col justify-center text-center lg:self-start">
+      <h2 class="text-white self-center text-xl font-semibold w-85 mb-4">Company</h2>
+    
+      <a href="#" target="_blank" class="text-white font-light">About</a>
+      <a href="#" target="_blank" class="text-white font-light">Team</a>
+      <a href="#" target="_blank" class="text-white font-light">Blog</a>
+      <a href="#" target="_blank" class="text-white font-light">Careers</a>
+    </div>
+    
+    <div class="flex flex-col justify-center text-center lg:self-start">
+      <h2 class="text-white self-center text-xl font-semibold w-85 mb-4">Connect</h2>
+    
+      <a href="#" target="_blank" class="text-white font-light">Contact</a>
+      <a href="#" target="_blank" class="text-white font-light">Newsletter</a>
+      <a href="#" target="_blank" class="text-white font-light">LinkedIn</a>
+    </div>
+    
+</footer> 
+</body>
+</html>
